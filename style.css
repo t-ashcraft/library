@@ -1,4 +1,44 @@
+body {
+    background-color: darkslategray;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 #booklist {
     display:grid;
-    grid-template: repeat(5,15vc) / repeat(5, 15vw);
+    grid-template: repeat(6,25vh) / repeat(auto-fill, minmax(100px,15vw));
+}
+
+.bookDisplay {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding:12px;
+    margin:12px;
+    background-color: lightgray;
+    align-items:center;
+    box-shadow: 4px 4px 4px black;
+    text-align:center;
+}
+
+.title {
+    font-weight: bold;
+    font-size:medium;
+    text-decoration: underline;
+}
+
+.author {
+    font-weight: 400;
+    font-style: italic;
+}
+
+.hasnotread {
+    background-color: palevioletred;
+}
+
+.hasread {
+    background-color:aquamarine;
+}
+
+.readButton {
+    max-width: 10vw;
 }
