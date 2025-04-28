@@ -78,6 +78,15 @@ function displayBooks() {
         });
         bookDisplay.appendChild(readButton);
 
+        let removeButton = document.createElement("button");
+        removeButton.classList.add("removeButton");
+        removeButton.textContent = "Remove Book";
+        removeButton.addEventListener("click", function (e) {
+            myLibrary.splice(myLibrary.indexOf(book), 1);
+            displayBooks();
+        });
+        bookDisplay.appendChild(removeButton);
+
         bookList.appendChild(bookDisplay);
     });
 }
