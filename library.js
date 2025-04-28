@@ -62,8 +62,15 @@ function displayBooks() {
 
         let readButton = document.createElement("button");
         readButton.classList.add("readButton");
-        readButton.textContent = "Hasn't Read";
-        readButton.classList.add("hasnotread");
+        if (book.read) {
+            readButton.textContent = "Has Read";
+            readButton.classList.remove("hasnotread");
+            readButton.classList.add("hasread");
+        } else {
+            readButton.textContent = "Hasn't Read";
+            readButton.classList.remove("hasread");
+            readButton.classList.add("hasnotread");
+        }
         readButton.addEventListener("click", function (e) {
             book.toggleRead();
             if (book.read) {
@@ -92,15 +99,11 @@ function displayBooks() {
 }
 
 function addDummyBooks() {
-    addBookToLibrary("ben ten 1", "benith tenith", 50);
-    addBookToLibrary("ben ten 2", "benith tenith", 50);
-    addBookToLibrary("ben ten 3", "benith tenith", 50);
-    addBookToLibrary("ben ten 4", "benith tenith", 50);
-    addBookToLibrary("ben ten 5", "benith tenith", 50);
-    addBookToLibrary("ben ten 6", "benith tenith", 50);
-    addBookToLibrary("ben ten 6", "benith tenith", 50);
-    addBookToLibrary("ben ten 6", "benith tenith", 50);
-    addBookToLibrary("ben ten 6", "benith tenith", 50);
+    addBookToLibrary("Test Book 1", "Author Bookington", 123)
+    addBookToLibrary("Test Book 2", "Author Bookington", 456)
+    addBookToLibrary("Test Book 3", "Book Authors", 123)
+    myLibrary[2].read = true;
+    addBookToLibrary("Test Book 4", "Writer of Books", 7890)
     displayBooks();
 }
 addDummyBooks()
