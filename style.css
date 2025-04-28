@@ -65,11 +65,3 @@ form {
     border-radius:1rem;
     box-shadow: 4px 4px 4px black;
 }
-
-input:user-invalid {
-    border-color:red;
-}
-
-input:user-valid {
-    border-color: gray;
-}

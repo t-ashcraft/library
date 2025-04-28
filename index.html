@@ -13,17 +13,17 @@
         <form action="">
             <div class="pair">
                 <label for="title">Title:</label>
-                <input id="title" type="text" required>
+                <input id="title" type="text" required minlength="1">
             </div>
             <div class="pair">
                 <label for="author">Author:</label>
-                <input id="author" type="text" required>
+                <input id="author" type="text" required minlength="1">
             </div>
             <div class="pair">                
                 <label for="pages"># Pages:</label>
-                <input id="pages" type="number" required>
+                <input id="pages" type="number" required pattern="[0-9]+">
             </div>
-            <button class="submitBtn">Add Book</button>
+            <button class="submitBtn" type="submit">Add Book</button>
         </form>
     </div>
 </body>

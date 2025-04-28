@@ -1,6 +1,11 @@
 const myLibrary = [];
 
+const form = document.querySelector("form");
 const bookList = document.querySelector("#booklist");
+const addBookButton = document.querySelector(".submitBtn");
+const inputTitle = document.querySelector("#title");
+const inputAuthor = document.querySelector("#author");
+const inputPages = document.querySelector("#pages");
 
 function Book(id, title, author, numpages) {
   if (!new.target) {throw Error("use new");};
@@ -27,9 +32,15 @@ function addBookToLibrary(title, author, numpages) {
     myLibrary[myLibrary.length] = book;
 }
 
-
+function clearBookDisplay() {
+    while (bookList.hasChildNodes()) {
+        const child = bookList.firstChild;
+        bookList.removeChild(child)
+    }
+}
 
 function displayBooks() {
+    clearBookDisplay();
     myLibrary.forEach(book => {
         let bookDisplay = document.createElement("div");
         bookDisplay.classList.add("bookDisplay");
@@ -85,5 +96,22 @@ function addDummyBooks() {
 }
 addDummyBooks()
 
+addBookButton.addEventListener("click", function(e) {
+    e.preventDefault();
+    
+    if (form.checkValidity()) {
+        addBookToLibrary(inputTitle.value, 
+            inputAuthor.value, 
+            inputPages.value);
 
+        
+        inputTitle.value = "";
+        inputAuthor.value = "";
+        inputPages.value = "";
+
+        displayBooks();
+    } else {
+        form.reportValidity();
+    }
+});
 
